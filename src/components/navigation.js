@@ -15,17 +15,21 @@ class Navigation extends React.Component {
             maxWidth: 960,
             padding: `0.45rem 1.0875rem`,
             overflow: `hidden`,
+            display: `flex`,
+            alignItems: `center`,
           }}
         >
+          <button style={{ marginRight: `1rem` }}>Menu -></button>
           <ul
             style={{
               listStyle: `none`,
               margin: 0,
               padding: 0,
               display: `flex`,
+              alignItems: `center`,
             }}
           >
-            <li style={{ marginRight: `1rem` }}>
+            <li style={{ marginRight: `1rem`, marginBottom: 0 }}>
               <Link
                 to="/"
                 style={{
@@ -36,7 +40,7 @@ class Navigation extends React.Component {
                 Home
               </Link>
             </li>
-            <li>
+            <li style={{ marginRight: `1rem`, marginBottom: 0 }}>
               <Link
                 to="/page-2"
                 style={{
