@@ -1,7 +1,13 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 
 const Navigation = () => {
+  const [showMenu, setShowMenu] = useState(false)
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu)
+  }
+
   return (
     <nav
       style={{
@@ -18,13 +24,15 @@ const Navigation = () => {
           alignItems: `center`,
         }}
       >
-        <button style={{ marginRight: `1rem` }}>Menu -></button>
+        <button onClick={toggleMenu} style={{ marginRight: `1rem` }}>
+          Menu ->
+        </button>
         <ul
           style={{
             listStyle: `none`,
             margin: 0,
             padding: 0,
-            display: `flex`,
+            display: showMenu ? `flex` : `none`,
             alignItems: `center`,
           }}
         >
