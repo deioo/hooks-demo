@@ -1,26 +1,28 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useEffect } from "react"
 import anime from "animejs"
 
 const Header = ({ siteTitle, isIndex }) => {
-  if (isIndex) {
-    const timeline = anime.timeline({
-      easing: "easeOutQuad",
-      duration: 750,
-    })
+  useEffect(() => {
+    if (isIndex) {
+      const timeline = anime.timeline({
+        easing: "easeOutQuad",
+        duration: 750,
+      })
 
-    timeline.add({
-      targets: ".header",
-      opacity: [0, 1],
-    })
+      timeline.add({
+        targets: ".header",
+        opacity: [0, 1],
+      })
 
-    timeline.add({
-      targets: ".headerTitle",
-      translateX: ["20%", "0"],
-      opacity: [0, 1],
-    })
-  }
+      timeline.add({
+        targets: ".headerTitle",
+        translateX: ["20%", "0"],
+        opacity: [0, 1],
+      })
+    }
+  })
 
   return (
     <header
