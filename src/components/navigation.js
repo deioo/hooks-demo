@@ -1,8 +1,9 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React from "react"
+import useLocalStorage from "../hooks/useLocalStorage"
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useLocalStorage("showMenu", false)
 
   const toggleMenu = () => {
     setShowMenu(!showMenu)
