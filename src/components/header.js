@@ -6,8 +6,13 @@ import anime from "animejs"
 const Header = ({ siteTitle, isIndex }) => {
   if (isIndex) {
     const timeline = anime.timeline({
-      easing: "easeInOutQuad",
-      duration: 1250,
+      easing: "easeOutQuad",
+      duration: 750,
+    })
+
+    timeline.add({
+      targets: ".header",
+      opacity: [0, 1],
     })
 
     timeline.add({
@@ -19,13 +24,13 @@ const Header = ({ siteTitle, isIndex }) => {
 
   return (
     <header
+      className="header"
       style={{
         background: `rebeccapurple`,
         marginBottom: `1.45rem`,
       }}
     >
       <div
-        className="header"
         style={{
           margin: `0 auto`,
           maxWidth: 960,
