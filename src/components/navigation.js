@@ -2,6 +2,24 @@ import { Link } from "gatsby"
 import React from "react"
 
 class Navigation extends React.Component {
+  constructor(props) {
+    super(props)
+
+    // adding the initial state
+    this.state = {
+      showMenu: false,
+    }
+  }
+
+  toggleActive = () => {
+    console.log("toggling active state")
+
+    // toggling the state
+    this.setState({
+      showMenu: !this.state.showMenu,
+    })
+  }
+
   render() {
     return (
       <nav
@@ -19,13 +37,18 @@ class Navigation extends React.Component {
             alignItems: `center`,
           }}
         >
-          <button style={{ marginRight: `1rem` }}>Menu -></button>
+          <button
+            onClick={() => this.toggleActive()}
+            style={{ marginRight: `1rem` }}
+          >
+            Menu ->
+          </button>
           <ul
             style={{
               listStyle: `none`,
               margin: 0,
               padding: 0,
-              display: `flex`,
+              display: this.state.showMenu ? `flex` : `none`,
               alignItems: `center`,
             }}
           >
