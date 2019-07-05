@@ -13,14 +13,17 @@ const Header = ({ siteTitle, isIndex }) => {
 
       timeline.add({
         targets: ".header",
-        opacity: [0, 1],
+        height: [0, 200],
       })
 
-      timeline.add({
-        targets: ".headerTitle",
-        translateX: ["20%", "0"],
-        opacity: [0, 1],
-      })
+      timeline.add(
+        {
+          targets: ".headerTitle .headerTitleChar",
+          opacity: [0, 1],
+          delay: (el, i) => i * 75,
+        },
+        "-=600"
+      )
     }
   }, [isIndex])
 
@@ -30,13 +33,19 @@ const Header = ({ siteTitle, isIndex }) => {
       style={{
         background: `rebeccapurple`,
         marginBottom: `1.45rem`,
+        overflow: `hidden`,
+        height: `200px`,
+        display: `flex`,
+        flexDirection: `column`,
+        justifyContent: `center`,
       }}
     >
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
+          padding: `0 1.0875rem`,
+          width: `100%`,
         }}
       >
         <h1 className="headerTitle" style={{ margin: 0 }}>
@@ -47,11 +56,14 @@ const Header = ({ siteTitle, isIndex }) => {
               textDecoration: `none`,
             }}
           >
-            {siteTitle}
-            {` `}
-            {isIndex ? `index page` : `secondary page`}
+            {siteTitle.split("").map((c, index) => (
+              <span key={`char-${index}`} className="headerTitleChar">
+                {c}
+              </span>
+            ))}
           </Link>
         </h1>
+        <h4>{isIndex ? `index page` : `Secondary page`}</h4>
       </div>
     </header>
   )
