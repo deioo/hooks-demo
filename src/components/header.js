@@ -22,7 +22,7 @@ const Header = ({ siteTitle, isIndex }) => {
         opacity: [0, 1],
       })
     }
-  })
+  }, [isIndex])
 
   return (
     <header
